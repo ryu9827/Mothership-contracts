@@ -6,17 +6,17 @@ const mnemonic =
 const providerRopsten = new HDWalletProvider(
   mnemonic,
   'https://ropsten.infura.io/',
-  0
+  0,
 )
 const providerKovan = new HDWalletProvider(
   mnemonic,
   'https://kovan.infura.io',
-  0
+  0,
 )
 const providerMain = new HDWalletProvider(
   process.env.MAIN_MNEMONIC,
   'http://localhost:8545',
-  0
+  0,
 )
 
 module.exports = {
@@ -46,5 +46,12 @@ module.exports = {
       gas: 4000000,
       gasPrice: 20e9,
     },
+  },
+  mocha: {
+    reporter: 'eth-gas-reporter',
+    reporterOptions : {
+      currency: 'CHF',
+      gasPrice: 21
+    }
   },
 }
